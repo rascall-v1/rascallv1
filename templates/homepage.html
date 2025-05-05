@@ -1,0 +1,356 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    .scrolling-wrapper {
+      overflow-x: auto; 
+      white-space: nowrap;
+      display: flex;
+      flex-wrap: nowrap;
+      padding: 10px; 
+    }
+
+    .card {
+      display: inline-block; 
+      width: 18rem; 
+      height: 440px;
+      margin: 15px;
+      border-radius: 18px;
+      box-shadow: 2px 4px 12px #080808f9;
+      /*display: flex;
+      flex-direction: column;
+      /*height: 29.4117647059rem;*/
+      position: relative;
+      white-space: normal;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      cursor: pointer;
+    }
+
+
+    .card:hover {
+      transform: scale(1.05); 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    /*.card-img-top {
+      height: 200px;   
+      object-fit: cover;  
+    }*/
+
+    .card-body {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      color: #080808f9;
+    }
+
+    .card-title {
+      font-size: 1.2rem; 
+      margin-bottom: 10px; 
+    }
+
+    .card-text {
+      font-size: 1.rem; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: wrap;
+      color:#080808f9;
+    }
+    .bottom-right{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: small;
+    }
+    .text-responsive {
+        font-size: 10px; 
+        color: rgb(253, 249, 249); 
+        padding: 11px;
+        padding-right: 0px;
+        margin: 1;
+    }
+    /*.text-responsive {
+        font-size: 1em;   
+        line-height: 1;
+        width: 20
+    }*/
+    
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        text-align: left;
+    }
+
+  </style>
+</head>
+
+
+<body>
+<div class="jumbotron jumboron-fluid">
+    <div class="col sm-6 btn-holder">
+        <!--<div class="image-container" style="position: relative; width: 100%; height: auto;">
+            <img style="max-width: 100%; height: auto; margin-bottom: 25px; margin-top: 20px;" src="/static/image.png">
+        </div> -->
+    </div>
+<h1 class="display-3">Welcome to RASCALL</h1>
+    <div class="container">
+    <p>RASCALL (Rapid Approximate Spectral Calculations for ALL) is a tool for predicting and analyzing molecular spectra. It uses functional group theory to estimate the spectral features of molecules quickly and efficiently.</p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-4 mb-4 border-bottom"> RASCALL Website</h3>
+            <div>
+                <p class="text-md-left font-weight-light" style= "line-height: 1.7">
+                    This website functions using the RASCALL code developed by Clara Sousa-Silva to create spectral plots of molecules. These plots use functional group theory to make predictions for different peaks and intensities with in the spectra. As seen below, each multi-colored dot corresponds to a different functional groups, with RASCALL predicting at what wavenumber and relative intensity it will be, based on previous data. RASCALL also have data from the NIST (National Institue of Standards and Technology) database to which the prediction is compared. With the website you are able to easily plot predictions for the spectra of molecules, as well as plot by functional group and then sort through different molecules. 
+                </p>
+            </div>
+            <div class="image-container" style="position: relative; width: 100%; height: auto;">
+                <img style="max-width: 80%; height: auto; margin-bottom: 25px; margin-top: 20px;" src="/static/RASCALL plot.png">
+                <div class="bottom-right">
+                    <figcaption class="text-responsive" style="color: black; font-size: 7px;">(Sousa-Silva, Petkowski, & Seager, 2019, Fig. 1)</figcaption>
+                </div>
+            </div>
+        </div>
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-2 bg-light rounded">
+                <h4>Additional Resources</h4>
+                <p>For more detailed information about RASCALL and its underlying principles, please refer to the following resources:</p>
+                <ul>
+                    <li><a href="https://pubs.rsc.org/en/content/articlehtml/2019/cp/c8cp07057a" target="_blank">
+                        <p>RASCALL: Rapid Approximate Spectral Calculations for ALL (Paper)</p>
+                    </a></li>
+                    <li><a href="https://github.com/yasharahmedkhan/RASCALL.git" target="_blank">
+                        <p>RASCALL GitHub Repository</p>
+                    </a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-8 blog-main">
+        <h3 class="pb-4 mb-4 border-bottom"> More About RASCALL</h3>
+        <div>
+            <p class="text-md-left font-weight-light" style= "line-height: 1.7" >Unambiguously identifying molecules 
+                in spectra is of fundamental importance for a variety of scientific and 
+                industrial uses. Interpreting atmospheric spectra for the remote detection 
+                of volatile compounds requires information about the spectrum of each 
+                relevant molecule. However, spectral data currently exist for a few hundred 
+                molecules and only a fraction of those have complete spectra 
+                (<span class="italics">e.g. </span>H<sub>2</sub>O, NH<sub>3</sub>). Consequently, 
+                molecular detections in atmospheric spectra remain vulnerable to false positives, 
+                false negatives, and missassignments.
+            </p>
+            <p class="text-md-left font-weight-light" style= "line-height: 1.7"> 
+                There is a key need for spectral data for a broad range of molecules. Given how 
+                challenging it is to obtain high-resolution molecular spectra, there is great value 
+                in creating intermediate approximate spectra that can provide a starting point for 
+                the analysis of atmospheric spectra. Using a combination of experimental measurements, 
+                organic chemistry, and quantum mechanics, RASCALL (Rapid Approximate Spectral Calculations for ALL) 
+                is a computational approach that provides approximate spectral data for any given molecule,
+                including thousands of potential atmospheric gases.
+            </p>
+            <!--<div class="image-container" position="relative">
+                <img style="width: 750px; height: 300px; margin-bottom: 25px; margin-top: 20px;" src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/spectra_enceladus.png">
+                <div class="bottom-right text-decoration">
+                    <p>Courtesy NASA/JPL-Caltech.</p>
+                </div>
+            </div>-->
+            <div class="image-container" style="position: relative; width: 100%; height: auto;">
+                <img style="max-width: 100%; height: auto; margin-bottom: 25px; margin-top: 20px;" src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/spectra_enceladus.png">
+                <div class="bottom-right">
+                  <figcaption class="text-responsive">Courtesy NASA/JPL-Caltech.</figcaption>
+                </div>
+            </div>
+            <p class="text-md-left font-weight-light" style= "line-height: 1.7">
+                RASCALL is a new theoretical chemistry method for the simulation of spectral data. RASCALL 1.0, 
+                presented here, is capable of simulating molecular spectral data, in a few seconds, by interpreting 
+                functional group data from experimental and theoretical sources to estimate the position and strength 
+                of molecular bands. 
+            <!--<div class="image-container" style="position: relative; width: 100%; height: auto;">
+                <img style="max-width: 100%; height: auto; margin-bottom: 25px; margin-top: 20px;" src="/static/RASCALL plot.png">
+                <div class="bottom-right">
+                    <figcaption class="text-responsive" style="color: black; font-size: 7px;">(Sousa-Silva, Petkowski, & Seager, 2019, Fig. 1)</figcaption>
+                </div>
+            </div> -->
+            <br>
+            <br>
+                The RASCALL 1.0 spectra consist of approximate band centers and qualitative 
+                intensities. RASCALL 1.0 is also able to assess hundreds of molecules simultaneously, which will inform 
+                prioritization protocols for future, computationally and experimentally costly, high-accuracy physical 
+                chemistry studies. 
+            </p>    
+            <div class="image-container" style="position: relative; width: 100%; height: auto;">
+                <img style="max-width: 100%; height: auto; margin-bottom: 25px; margin-top: 20px;" src="/static/RASCALL Flow Chart.png">
+                <div class="bottom-right">
+                  <figcaption class="text-responsive" style="color: black; font-size: 7px;">(Sousa-Silva, Petkowski, & Seager, 2019, Fig. 1)</figcaption>
+                </div>
+              </div>
+            <p class="text-md-left font-weight-light" style= "line-height: 1.7">    
+                Finally, RASCALL can be used to study spectral patterns between molecules, highlighting 
+                ambiguities in molecular detections and also directing observations towards spectral regions that reduce 
+                the degeneracy in molecular identification. The RASCALL catalogue, and its preliminary version RASCALL 1.0, 
+                contains spectral data for more molecules than any other publicly available database, with applications 
+                in all fields interested in the detection of molecules in the gas phase (e.g., medical imaging, petroleum 
+                industry, pollution monitoring, astrochemistry). The preliminary catalogue of molecular data and associated 
+                documentation are freely available online and will be routinely updated.
+            </p>
+        </div>
+    </div>
+    <!--<aside class="col-md-4 blog-sidebar">
+        <div class="p-3 mb-2 bg-light rounded">
+            <h4>Additional Resources</h4>
+            <p>For more detailed information about RASCALL and its underlying principles, please refer to the following resources:</p>
+            <ul>
+                <li><a href="https://pubs.rsc.org/en/content/articlehtml/2019/cp/c8cp07057a" target="_blank">
+                    <p>RASCALL: Rapid Approximate Spectral Calculations for ALL (Paper)</p>
+                </a></li>
+                <li><a href="https://github.com/yasharahmedkhan/RASCALL.git" target="_blank">
+                    <p>RASCALL GitHub Repository</p>
+                </a></li>
+            </ul>
+        </div>
+    </aside> -->
+</div>
+</div>
+
+<hr>
+
+<div>
+    <h3>
+        RASCALL Functions
+    </h3>
+</div>
+<div class="scrolling-wrapper">
+    <!-- List Card -->
+    <a href="http://127.0.0.1:5001/list">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>List:</strong></h5>
+                <p class="card-text">Generate lists of molecules based on various criteria.</p>
+            </div>
+        </div>
+    </a> 
+
+    <!-- Plot Card -->
+    <a href="http://127.0.0.1:5001/plot">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Plot:</strong></h5>
+                <p class="card-text">Create spectral plots for molecules or functional groups.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- Search Card -->
+    <a href="http://127.0.0.1:5001/search">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Search:</strong></h5>
+                <p class="card-text">Look up detailed information about specific molecules.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- Documentation Card -->
+    <a href="http://127.0.0.1:5001/documentation">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Documentation:</strong></h5>
+                <p class="card-text">Learn more about how to use RASCALL and its underlying principles.</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+  
+</body>  
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.5/js/bootstrap.min.js"></script>
+
+  
+
+
+<!--Potential alternate cards-->
+<!--
+<div class="container">
+<div class="row">
+    <div class="col-md">
+        <h2><strong>List:</strong></h2> 
+        <p>Generate lists of molecules based on various criteria.<p>
+    </div>
+    <div class="col-md">
+        <h2><strong>Plot:</strong></h2> 
+        <p>Create spectral plots for molecules or functional groups.</p>
+    </div>
+    <div class="col-md">
+        <h2><strong>Search:</strong></h2> 
+        <p>Look up detailed information about specific molecules.</p>
+    </div>
+    <div class="col-md">
+        <h2><strong>Documentation:</strong> </h2>
+        <p>Learn more about how to use RASCALL and its underlying principles.</p>
+    </div>
+</div>
+</div>
+
+
+<div class="rs-cardsshelf">
+    <div id="shelf-3">
+       <div data-analytics-region="Shelf-2" data-analytics-section="Shelf-2" id="shelf-3_section">
+            <div class="as-l-container rs-cards-shelf-header">
+                <h2 class="rs-cards-shelf-mainheader">Use the navigation bar above to access different features of RASCALL:</h2>
+                <span class="rs-cards-shelf-secondaryheader">BLAH BLAH</span>
+            </div>
+        <div class="rf-cards-scroller">
+
+        </div>    
+       </div>
+    </div>
+</div>
+
+-->
+
+
+<!--Old Cards-->
+<!--
+<div>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="rs-cards-shelf-header"><strong>Plot:</strong></h5>
+            <p class="card-text">Create spectral plots for molecules or functional groups.</p>
+        </div>
+    </div>
+  
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="rs-cards-shelf-header"><strong>Search:</strong></h5>
+            <p class="card-text">Look up detailed information about specific molecules.</p>
+        </div>
+    </div>
+  
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="rs-cards-shelf-header"><strong>Documentation:</strong></h5>
+        <p class="card-text">Learn more about how to use RASCALL and its underlying principles.</p>
+        </div>
+    </div>
+</div>
+-->
+{% endblock %}
